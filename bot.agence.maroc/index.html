@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOT AGENCE MAROC — Créez votre voyage sur mesure</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div id="landing" class="screen active">
+        <div class="landing-overlay"></div>
+        <div class="landing-content">
+            <div class="logo">
+                <span class="logo-icon">🌙</span>
+                <h1>BOT AGENCE MAROC</h1>
+                <p class="tagline">Votre voyage sur mesure au Maroc</p>
+            </div>
+            <div class="hero-text">
+                <h2>Découvrez le Maroc<br>comme vous ne l'avez<br>jamais imaginé</h2>
+                <p>Des médinas millénaires aux dunes du Sahara, créez un itinéraire qui vous ressemble — guidé par notre assistant intelligent.</p>
+            </div>
+            <button class="btn-primary btn-cta" onclick="startJourney()">
+                <span>Créer mon voyage</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <div class="trust-badges">
+                <div class="badge">✓ 100% gratuit</div>
+                <div class="badge">✓ Sans engagement</div>
+                <div class="badge">✓ Réponse sous 48h</div>
+            </div>
+        </div>
+        <div class="landing-pattern"></div>
+    </div>
+
+    <!-- Chat Widget -->
+    <div id="chatWidget" class="screen">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-text" id="progressText">Étape 1 sur 6</div>
+        </div>
+
+        <!-- Header -->
+        <div class="chat-header">
+            <button class="btn-back" id="btnBack" onclick="goBack()" style="display:none;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </button>
+            <div class="header-info">
+                <span class="logo-icon-sm">🌙</span>
+                <div>
+                    <h3>BOT AGENCE MAROC</h3>
+                    <span class="status-dot"></span> <span class="status-text">En ligne</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Body -->
+        <div class="chat-body" id="chatBody">
+            <!-- Messages will be injected here -->
+        </div>
+
+        <!-- Input Area (hidden by default, shown when text input needed) -->
+        <div class="chat-input-area" id="chatInputArea" style="display:none;">
+            <input type="text" id="chatInput" placeholder="Tapez votre réponse..." autocomplete="off">
+            <button class="btn-send" onclick="submitTextInput()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Confirmation Screen -->
+    <div id="confirmation" class="screen">
+        <div class="confirmation-content">
+            <div class="success-animation">
+                <div class="checkmark-circle">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2ecc71" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+            </div>
+            <h2>Votre demande a été envoyée ! 🎉</h2>
+            <p>Un expert local du Maroc vous contactera sous <strong>48 heures</strong> avec une proposition d'itinéraire personnalisé.</p>
+            <div class="summary-card" id="summaryCard">
+                <!-- Filled dynamically -->
+            </div>
+            <button class="btn-primary" onclick="resetAll()">Créer un autre voyage</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
